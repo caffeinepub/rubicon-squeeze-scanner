@@ -159,13 +159,13 @@ export default function App() {
             }
           }
         } catch {
-          // If chart fetch fails, avg stays 0 — no Rubicon signal
+          // If chart fetch fails, avg stays 0 — no Squeeze signal
         }
 
-        // Step 3: Rubicon condition
+        // Step 3: Unicorn Crypto Squeeze condition
         const signalType =
           sevenDayAvgVolume > 0 && coin.total_volume > 2 * sevenDayAvgVolume
-            ? "rubicon"
+            ? "unicorn"
             : "neutral";
 
         result.push({
@@ -190,7 +190,7 @@ export default function App() {
     }
   }, []);
 
-  const rubiconCount = signals.filter((s) => s.signalType === "rubicon").length;
+  const squeezeCount = signals.filter((s) => s.signalType === "unicorn").length;
 
   return (
     <div
@@ -251,7 +251,7 @@ export default function App() {
                   textShadow: "0 0 20px rgba(255,59,47,0.6)",
                 }}
               >
-                RUBICON
+                UNICORN CRYPTO
               </span>
               <span
                 style={{
@@ -261,7 +261,7 @@ export default function App() {
                   letterSpacing: "0.04em",
                 }}
               >
-                SCANNER
+                SQUEEZE
               </span>
             </div>
           </div>
@@ -395,8 +395,8 @@ export default function App() {
               icon={BarChart3}
             />
             <KpiCard
-              label="Rubicon Breakouts"
-              value={rubiconCount}
+              label="Squeeze Breakouts"
+              value={squeezeCount}
               icon={TrendingUp}
               accent="#2EEA7A"
             />
@@ -426,7 +426,7 @@ export default function App() {
                 Top 20 Cryptocurrency Market Screener
               </h2>
               <p style={{ color: "#9AA4B2", fontSize: 12, marginTop: 2 }}>
-                Rubicon Effect analysis — 7-day average volume baseline
+                Unicorn Crypto Squeeze analysis — 7-day average volume baseline
               </p>
             </div>
             {signals.length > 0 && (
@@ -629,7 +629,7 @@ export default function App() {
                             paddingRight: 24,
                           }}
                         >
-                          {s.signalType === "rubicon" ? (
+                          {s.signalType === "unicorn" ? (
                             <span
                               style={{
                                 color: "#2EEA7A",
@@ -638,7 +638,7 @@ export default function App() {
                                 letterSpacing: "0.06em",
                               }}
                             >
-                              RUBICON
+                              SQUEEZE
                             </span>
                           ) : (
                             <span
